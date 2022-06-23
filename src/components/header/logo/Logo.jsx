@@ -1,16 +1,28 @@
 import React from "react";
+import HeaderDecorElem from "../../../images/HeaderDecorElem";
+import sportalLogoDesktop from "../../../images/sportalLogoDesktop.svg";
+import sportalLogoMobile from "../../../images/sportalLogoMobile.svg";
 
 function Logo() {
   return (
-    <a className="flex self-center w-full align-center lg:max-w-[264px] max-w-[124px]" href="/">
-      <picture>
-        <source
-          srcSet="https://sportal.blic.rs/theme/img/logo-mobile.svg"
-          media="(max-width: 1024px)"
-        />
-        <img src="https://sportal.blic.rs/theme/img/logo-desktop.svg" alt="" />
-      </picture>
-    </a>
+    <div className="flex h-full relative">
+      <a
+        className="bg-gradient-to-r from-[#eb003c] to-[#f1202b] flex grow h-full self-center w-full align-center xl:max-w-[264px] max-w-[124px] z-40 -mr-4 xl:-mr-1 pl-3 items-center"
+        href="/"
+      >
+        <picture>
+          <source
+            srcSet={sportalLogoMobile}
+            media="(max-width: 1279px)"
+          />
+          <img
+            src={sportalLogoDesktop}
+            alt="sportal logo"
+          />
+        </picture>
+      </a>
+      <HeaderDecorElem/>
+    </div>
   );
 }
 

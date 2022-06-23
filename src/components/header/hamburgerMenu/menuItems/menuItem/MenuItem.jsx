@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import ArrowDownIcon from "../../../../../icons/ArrowDownIcon";
+import DropDown from "./DropDown";
+import SpecialDropDown from "./SpecialDropDown";
 
 function MenuItem({ item }) {
-  const [showChildren, setShowChildren] = useState(false);
+  const [showChildren, setShowChildren] = useState(item.special === true);
+  const getDropDown = (item) => item.special ? <SpecialDropDown items={item.children} /> : <DropDown items={item.children}/>
   return (
     <li>
       <div className="flex w-full items-center cursor-pointer py-1 text-left">
@@ -18,42 +22,16 @@ function MenuItem({ item }) {
           >
             <div
               className={
-                "transition-transform " +
+                "dark:text-white transition-transform " +
                 (showChildren ? "rotate-180" : "rotate-0")
               }
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <ArrowDownIcon stroke="currentColor"/>
             </div>
           </button>
         )}
       </div>
-      {item.children && showChildren && (
-        <ul className="flex flex-col gap-1 pl-3 pb-3">
-          {item.children.map((child) => (
-            <li className="text-left">
-              <a
-                className="font-bold text-lg hover:text-brand-red transition-color duration-200"
-                href={child.url}
-              >
-                {child.text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      {item.children && showChildren && getDropDown(item)}
     </li>
   );
 }

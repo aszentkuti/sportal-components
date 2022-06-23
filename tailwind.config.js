@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'brand-red': '#e01b2f',
         'brand-orange': '#ff6c00',
+        'brand-dark-orange': '#f6391d',
         'dark': '#1c242e',
         'dark-accent': '#0e1823'
       },
@@ -47,8 +48,14 @@ module.exports = {
         'fade-in': 'fade-in .3s linear forwards',
         'slide-in-from-right': 'slide-in-from-right .2s ease-out forwards',
         'slide-out-to-right': 'slide-out-to-right .2s ease-out forwards',
+      },
+      height:{
+        '18': '4.5rem'
       }
     },
+    fontFamily: {
+      'sans': ['"Barlow"'],
+    }
   },
   plugins: [],
 }
